@@ -1,22 +1,29 @@
 package com.felipersumiya.course.resources;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.felipersumiya.course.entities.User;
+import com.felipersumiya.course.services.UserService;
 
 @RestController
 @RequestMapping (value = "/users")
 public class UserResource {
 
+@Autowired	
+private UserService	userService;
+
 	@GetMapping
-	public ResponseEntity<User> findAll(){
+	public ResponseEntity<List<User>> findAll(){
 		
-		User user = new User(1L, "Fe", "4354345", "f@f","1234");
+		List<User> list = userService.findAll();
 		
-		return ResponseEntity.ok().body(user);
+		return ResponseEntity.ok().body(list);
 	}
 	
 
