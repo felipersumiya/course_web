@@ -3,24 +3,28 @@ package com.felipersumiya.course.entities;
 import java.io.Serializable;
 
 import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 import com.felipersumiya.course.entities.pk.OrderItemPK;
 
+@Entity
+@Table (name = "tb_order_item")
 public class OrderItem implements Serializable{
-	
 
+	
 	private static final long serialVersionUID = 1L;
 	
 	@EmbeddedId
-	private OrderItemPK id;
+	private OrderItemPK id = new OrderItemPK();
 	private Integer quantity;
-	private double price;
+	private Double price;
 	
 	public OrderItem() {
 		
 	}
 	
-	public OrderItem(Product product, Order order , Integer quantity, double price) {
+	public OrderItem( Order order ,Product product, Integer quantity, Double price) {
 		super();
 		id.setOrder(order);
 		id.setProduct(product);
@@ -52,11 +56,11 @@ public class OrderItem implements Serializable{
 		this.quantity = quantity;
 	}
 
-	public double getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 

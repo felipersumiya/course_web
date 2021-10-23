@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.felipersumiya.course.entities.Category;
-import com.felipersumiya.course.entities.Order;
 import com.felipersumiya.course.services.CategoryService;
-import com.felipersumiya.course.services.OrderService;
 
 @RestController
 @RequestMapping (value = "/categories")

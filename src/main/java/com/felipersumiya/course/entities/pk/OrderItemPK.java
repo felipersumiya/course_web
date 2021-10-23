@@ -10,7 +10,7 @@ import com.felipersumiya.course.entities.Order;
 import com.felipersumiya.course.entities.Product;
 
 @Embeddable
-public class OrderItemPK implements Serializable {
+public class OrderItemPK implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
